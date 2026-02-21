@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # Requirement Whisperer
 
-**We don't replace PMs. We translate them.**
+**We don't replace Project Managers or Product Owners. We translate them.**
 
 Paste messy requirements → get clean **User Stories** + **Acceptance Criteria** + **Detected ambiguities**.
 
@@ -13,7 +12,7 @@ Built for Product Managers, Business Analysts, and dev leads. One clear flow: in
 
 - **Input:** Raw requirement text (paste anything messy).
 - **Output:**
-  - **User Story** in “As a … I want … So that …” format
+  - **User Story** in "As a … I want … So that …" format
   - **3–5 Acceptance Criteria**
   - **Detected ambiguities** (highlighted so you can fix them)
 
@@ -25,22 +24,22 @@ No infra drama: frontend + one backend endpoint. Cursor does the heavy lifting.
 
 ### 1. API key
 
-Create a `.env` file in the **server** folder:
+Create a '.env' file in the **server** folder:
 
-```bash
+'''bash
 cd server
 echo OPENAI_API_KEY=your-openai-api-key-here > .env
-```
+'''
 
 (Get a key from [OpenAI API](https://platform.openai.com/api-keys).)
 
 ### 2. Install and run
 
-```bash
+'''bash
 cd server
 npm install
 npm start
-```
+'''
 
 Server runs at **http://localhost:3000**. Open that URL in a browser.
 
@@ -53,7 +52,6 @@ Server runs at **http://localhost:3000**. Open that URL in a browser.
 ---
 
 ## Project layout
-
 ```
 requirement-whisperer/
 ├── public/           # Static frontend
@@ -72,16 +70,15 @@ requirement-whisperer/
 ## API
 
 - **POST /clarify**  
-  Body: `{ "text": "raw requirement string" }`  
-  Response: `{ userStory, acceptanceCriteria[], ambiguities[] }`
+  Body: '{ "text": "raw requirement string" }' 
+  Response: '{ userStory, acceptanceCriteria[], ambiguities[] }'
 
 ---
 
 ## Tech
 
 - **Frontend:** Vanilla HTML/CSS/JS, single page.
-- **Backend:** Express, one `/clarify` route calling OpenAI (gpt-4o-mini).
-- **Env:** `dotenv` for `OPENAI_API_KEY`.
+- **Backend:** Express, one '/clarify' route calling OpenAI (gpt-4o-mini).
+- **Env:** 'dotenv' for 'OPENAI_API_KEY'.
 =======
 # requirement-whisperer
->>>>>>> c2478211b7551d6a7cedf1e8aecf06b7863f32e8

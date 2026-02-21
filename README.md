@@ -52,7 +52,7 @@ Server runs at **http://localhost:3000**. Open that URL in a browser.
 ---
 
 ## Project layout
-``
+```
 requirement-whisperer/
 ├── public/           # Static frontend
 │   ├── index.html
@@ -63,7 +63,7 @@ requirement-whisperer/
 │   ├── package.json
 │   └── .env          # OPENAI_API_KEY (you create this)
 └── README.md
-``
+```
 
 ---
 

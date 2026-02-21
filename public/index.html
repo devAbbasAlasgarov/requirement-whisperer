@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requirement Whisperer — We translate PMs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="logo">Requirement Whisperer</h1>
+      <p class="tagline">We don't replace PMs. We translate them.</p>
+    </header>
+
+    <main class="main">
+      <section class="input-section">
+        <label for="raw-input" class="label">Paste messy requirements</label>
+        <textarea
+          id="raw-input"
+          class="textarea"
+          placeholder="Paste raw requirement text here… e.g. “Users need to be able to login and then do stuff with their profile and we need it fast.”"
+          rows="6"
+        ></textarea>
+        <div class="actions">
+          <button type="button" id="clarify-btn" class="btn btn-primary">Clarify</button>
+          <span id="status" class="status" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section id="output-section" class="output-section hidden" aria-live="polite">
+        <h2 class="output-title">Clarified output</h2>
+
+        <div class="block user-story-block">
+          <h3 class="block-title">User Story</h3>
+          <p id="user-story" class="user-story"></p>
+        </div>
+
+        <div class="block acceptance-block">
+          <h3 class="block-title">Acceptance Criteria</h3>
+          <ul id="acceptance-criteria" class="acceptance-list"></ul>
+        </div>
+
+        <div class="block ambiguities-block" id="ambiguities-block">
+          <h3 class="block-title">Detected ambiguities</h3>
+          <ul id="ambiguities" class="ambiguities-list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Paste messy requirements → get clean User Stories + Acceptance Criteria. For PMs, BAs & dev leads.</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

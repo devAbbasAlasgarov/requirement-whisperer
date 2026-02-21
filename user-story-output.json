@@ -1,0 +1,44 @@
+{
+  "userStory": "As a developer, I want to call the OpenAI Chat Completions API with a system prompt and user text and return the assistant's message as parsed JSON, so that the client receives structured AI-generated output.",
+  "acceptanceCriteria": [
+    {
+      "id": 1,
+      "given": "A valid OPENAI_API_KEY is set in the environment",
+      "when": "The handler is invoked with a system prompt and user text",
+      "then": "A POST request is sent to https://api.openai.com/v1/chat/completions with model gpt-4o-mini, temperature 0.2, and the provided messages"
+    },
+    {
+      "id": 2,
+      "given": "The OpenAI API returns a successful response with at least one choice",
+      "when": "The response is processed",
+      "then": "The client receives the assistant message content parsed as JSON (res.json(JSON.parse(...)))"
+    },
+    {
+      "id": 3,
+      "given": "The assistant message content is valid JSON",
+      "when": "The content is parsed and sent",
+      "then": "The response body is the parsed object, not a string"
+    },
+    {
+      "id": 4,
+      "given": "The request is made (any outcome)",
+      "when": "The handler runs",
+      "then": "The Authorization header uses Bearer and the value of process.env.OPENAI_API_KEY"
+    },
+    {
+      "id": 5,
+      "given": "The request is made",
+      "when": "The body is built",
+      "then": "The payload includes messages array with exactly one system message (SYSTEM_PROMPT) and one user message (text)"
+    }
+  ],
+  "ambiguities": [
+    "SYSTEM_PROMPT is not defined in the snippet — source, content, and who sets it are unclear.",
+    "Variable 'text' is not defined — it is unclear whether it comes from the request body, query params, or elsewhere.",
+    "'res' is not defined — the HTTP framework (e.g. Express, Fastify) and the route/handler contract are unspecified.",
+    "No error handling is specified — behavior for network failures, non-2xx responses, or missing data.choices is undefined.",
+    "It is assumed that data.choices[0].message.content is always a valid JSON string; behavior when it is not (e.g. plain text or invalid JSON) is unspecified.",
+    "Behavior when data.choices is empty or choices[0].message is missing is not defined.",
+    "Whether OPENAI_API_KEY is validated or required before the call is not stated."
+  ]
+}
